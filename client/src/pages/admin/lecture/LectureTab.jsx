@@ -18,7 +18,8 @@ import { toast } from "sonner";
 import { useEditLectureMutation, useGetLectureByIdQuery, useRemoveLectureMutation } from "../../../features/api/courseApi";
 
 
-const MEDIA_API = "http://localhost:8080/api/v1/media";
+// const MEDIA_API = "http://localhost:8080/api/v1/media";
+const MEDIA_API = "https://lms1-6da5.onrender.com/api/v1/media";
 
 const LectureTab = () => {
     const [lectureTitle, setLectureTitle] = useState("");
