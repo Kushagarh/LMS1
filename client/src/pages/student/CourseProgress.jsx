@@ -30,7 +30,7 @@ const CourseProgress = () => {
   ] = useInCompleteCourseMutation();
 
   useEffect(() => {
-    console.log(markCompleteData);
+    // console.log(markCompleteData);
 
     if (completedSuccess) {
       refetch();
@@ -47,7 +47,7 @@ const CourseProgress = () => {
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Failed to load course details</p>;
 
-  console.log(data);
+  // console.log(data);
 
   const { courseDetails, progress, completed } = data.data;
   const { courseTitle } = courseDetails;
