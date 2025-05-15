@@ -20,6 +20,13 @@ import { useEffect, useState } from "react"
 import { useLoginUserMutation, useRegisterUserMutation } from "../features/api/authApi.js"
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem
+} from "@/components/ui/select"
 
 const Login=()=> {
        const navigate=useNavigate();
@@ -27,6 +34,7 @@ const Login=()=> {
         name: "",
         email: "",
         password: "",
+        role:""
       });
       const [loginInput, setLoginInput] = useState({ email: "", password: "" });
 
@@ -117,6 +125,23 @@ const Login=()=> {
               <Label htmlFor="password">Password</Label>
               <Input className="border rounded-xl border-gray-400" id="password" name="password" value={signupInput.password} onChange={(e) => changeInputHandler(e, "signup")} type="password" placeholder="Eg: xyz" required="true" />
             </div>
+             <div className="space-y-1">
+    <Label htmlFor="role">Role</Label>
+    <Select
+      onValueChange={(value) =>
+        changeInputHandler({ target: { name: "role", value } }, "signup")
+      }
+      value={signupInput.role}
+    >
+      <SelectTrigger className="border rounded-xl border-gray-400 bg-white" id="role">
+        <SelectValue placeholder="Select Role" />
+      </SelectTrigger>
+      <SelectContent className="bg-white border rounded-xl border-gray-400">
+        <SelectItem value="student">Student</SelectItem>
+        <SelectItem value="instructor">Instructor</SelectItem>
+      </SelectContent>
+    </Select>
+  </div>
           </CardContent>
           <CardFooter>
             <Button className="bg-blue-950 text-white hover:bg-blue-800 border rounded-xl" 
